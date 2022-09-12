@@ -1,0 +1,20 @@
+﻿Sistema de usuarios
+-Nombre: debe ser unico
+-Password: entre 6 y 10 caracteres
+-pregunta: 5 opciones
+-respuesta
+
+Un form de login que tenga:
+-Nombre
+-Password
+-recuperar contraseña
+-Entrar
+
+Un form principal, cada boton te lleva a un form (algunos te pueden llevar al mismo form)
+-Crear
+-Modificar
+-Listar
+-Eliminar
+
+La opcion de crear, eliminar, listar solo el administrador. La opcion de modificar la puede hacer cada usuario
+para su propio usuario.
