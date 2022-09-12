@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Usuarios
+namespace Usuarios.Vistas
 {
-    public partial class Form1 : Form
+    public partial class FormModificarUsuario : Form
     {
-        public Form1()
+        public FormModificarUsuario()
         {
             InitializeComponent();
         }

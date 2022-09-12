@@ -7,7 +7,7 @@
 Un form de login que tenga:
 -Nombre
 -Password
--recuperar contraseña
+-recuperar contraseña -> debe llevar a otro form para recuperar usuario
 -Entrar
 
 Un form principal, cada boton te lleva a un form (algunos te pueden llevar al mismo form)
@@ -15,6 +15,10 @@ Un form principal, cada boton te lleva a un form (algunos te pueden llevar al mi
 -Modificar
 -Listar
 -Eliminar
+
+-Listar: solo se ve nombre y al hacerle click, te muestra los datos
+-Modificar: si se es administrador lleva al FormCrearUsuario, llevando todos los datos para modificarlos,
+si se es usuario lleva a FormModificarUsuario
 
 La opcion de crear, eliminar, listar solo el administrador. La opcion de modificar la puede hacer cada usuario
 para su propio usuario.
