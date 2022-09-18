@@ -46,13 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\UsuariosControl.cs" />
+    <Compile Include="Datos\DataConectar.cs" />
+    <Compile Include="Datos\DataUsuarios.cs" />
     <Compile Include="Modelos\Usuario.cs" />
-    <Compile Include="Vistas\FormContraNueva.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FormContraNueva.Designer.cs">
-      <DependentUpon>FormContraNueva.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\FormCrearUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,9 +97,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Vistas\FormContraNueva.resx">
-      <DependentUpon>FormContraNueva.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FormCrearUsuario.resx">
       <DependentUpon>FormCrearUsuario.cs</DependentUpon>
     </EmbeddedResource>

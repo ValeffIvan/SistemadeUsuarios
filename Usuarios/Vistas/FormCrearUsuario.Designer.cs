@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btn_crear = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_pregunta = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,7 +37,7 @@
             this.txt_respuesta = new System.Windows.Forms.TextBox();
             this.btn_cerrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_contra = new System.Windows.Forms.TextBox();
             this.cb_admin = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -50,16 +50,16 @@
             this.btn_crear.TabIndex = 1;
             this.btn_crear.Text = "Crear";
             this.btn_crear.UseVisualStyleBackColor = true;
+            this.btn_crear.Click += new System.EventHandler(this.btn_crear_Click);
             // 
-            // textBox1
+            // txt_nombre
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.textBox1.Location = new System.Drawing.Point(35, 50);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(258, 39);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_nombre.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.txt_nombre.Location = new System.Drawing.Point(35, 50);
+            this.txt_nombre.Multiline = true;
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Size = new System.Drawing.Size(258, 39);
+            this.txt_nombre.TabIndex = 2;
             // 
             // label1
             // 
@@ -70,12 +70,18 @@
             this.label1.Size = new System.Drawing.Size(91, 31);
             this.label1.TabIndex = 5;
             this.label1.Text = "Nombre";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cb_pregunta
             // 
+            this.cb_pregunta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_pregunta.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.cb_pregunta.FormattingEnabled = true;
+            this.cb_pregunta.Items.AddRange(new object[] {
+            "Nombre de su primera mascota",
+            "Cual fue tu primer auto",
+            "Cual es tu pelicula favorita",
+            "Nombre de tu hermano/a",
+            "Banda favorita"});
             this.cb_pregunta.Location = new System.Drawing.Point(33, 207);
             this.cb_pregunta.Name = "cb_pregunta";
             this.cb_pregunta.Size = new System.Drawing.Size(258, 39);
@@ -117,8 +123,9 @@
             this.btn_cerrar.Name = "btn_cerrar";
             this.btn_cerrar.Size = new System.Drawing.Size(128, 60);
             this.btn_cerrar.TabIndex = 12;
-            this.btn_cerrar.Text = "Volver";
+            this.btn_cerrar.Text = "Cerrar";
             this.btn_cerrar.UseVisualStyleBackColor = true;
+            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
             // 
             // label2
             // 
@@ -130,14 +137,15 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Contraseña";
             // 
-            // textBox2
+            // txt_contra
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.textBox2.Location = new System.Drawing.Point(33, 131);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(258, 39);
-            this.textBox2.TabIndex = 13;
+            this.txt_contra.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.txt_contra.Location = new System.Drawing.Point(33, 131);
+            this.txt_contra.Multiline = true;
+            this.txt_contra.Name = "txt_contra";
+            this.txt_contra.Size = new System.Drawing.Size(258, 39);
+            this.txt_contra.TabIndex = 13;
+            this.txt_contra.UseSystemPasswordChar = true;
             // 
             // cb_admin
             // 
@@ -155,21 +163,21 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 461);
+            this.ControlBox = false;
             this.Controls.Add(this.cb_admin);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_contra);
             this.Controls.Add(this.btn_cerrar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_respuesta);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cb_pregunta);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.btn_crear);
             this.Name = "FormCrearUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormCrearUsuario";
-            this.Load += new System.EventHandler(this.FormCrearUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,7 +186,7 @@
         #endregion
 
         private System.Windows.Forms.Button btn_crear;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cb_pregunta;
         private System.Windows.Forms.Label label3;
@@ -186,7 +194,7 @@
         private System.Windows.Forms.TextBox txt_respuesta;
         private System.Windows.Forms.Button btn_cerrar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_contra;
         private System.Windows.Forms.CheckBox cb_admin;
     }
 }

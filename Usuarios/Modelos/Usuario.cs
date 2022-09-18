@@ -13,13 +13,15 @@ namespace Usuarios.Modelos
         //la pregunta guarda el numero de pregunta, del 1 al 5
         public int pregunta { get; set; }
         public string respuesta { get; set; }
+        public bool administrador { get; set; }
 
-        public Usuario (string nombre,string password,int pregunta,string respuesta)
+        public Usuario (string nombre, string password, int pregunta, string respuesta, bool administrador)
         {
             this.nombre = nombre;
             this.password = password;
             this.pregunta = pregunta;
             this.respuesta = respuesta;
+            this.administrador = administrador;
         }
     }
 }

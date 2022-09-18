@@ -62,6 +62,7 @@
             this.lbllink_recuperar.TabIndex = 2;
             this.lbllink_recuperar.TabStop = true;
             this.lbllink_recuperar.Text = "Recuperar contraseña";
+            this.lbllink_recuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbllink_recuperar_LinkClicked);
             // 
             // btn_ingresar
             // 
@@ -72,6 +73,7 @@
             this.btn_ingresar.TabIndex = 3;
             this.btn_ingresar.Text = "Ingresar";
             this.btn_ingresar.UseVisualStyleBackColor = true;
+            this.btn_ingresar.Click += new System.EventHandler(this.btn_ingresar_Click);
             // 
             // label1
             // 

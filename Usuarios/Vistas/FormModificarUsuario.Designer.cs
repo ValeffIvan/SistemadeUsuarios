@@ -50,7 +50,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.label4.Location = new System.Drawing.Point(35, 100);
+            this.label4.Location = new System.Drawing.Point(36, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 31);
             this.label4.TabIndex = 22;
@@ -59,7 +59,7 @@
             // txt_respuesta
             // 
             this.txt_respuesta.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.txt_respuesta.Location = new System.Drawing.Point(39, 134);
+            this.txt_respuesta.Location = new System.Drawing.Point(40, 135);
             this.txt_respuesta.Multiline = true;
             this.txt_respuesta.Name = "txt_respuesta";
             this.txt_respuesta.Size = new System.Drawing.Size(258, 39);
@@ -69,7 +69,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.label3.Location = new System.Drawing.Point(35, 24);
+            this.label3.Location = new System.Drawing.Point(36, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 31);
             this.label3.TabIndex = 20;
@@ -79,7 +79,13 @@
             // 
             this.cb_pregunta.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.cb_pregunta.FormattingEnabled = true;
-            this.cb_pregunta.Location = new System.Drawing.Point(39, 58);
+            this.cb_pregunta.Items.AddRange(new object[] {
+            "Nombre de su primera mascota",
+            "Cual fue tu primer auto",
+            "Cual es tu pelicula favorita",
+            "Nombre de tu hermano/a",
+            "Banda favorita"});
+            this.cb_pregunta.Location = new System.Drawing.Point(40, 59);
             this.cb_pregunta.Name = "cb_pregunta";
             this.cb_pregunta.Size = new System.Drawing.Size(258, 39);
             this.cb_pregunta.TabIndex = 19;
@@ -93,6 +99,7 @@
             this.btn_cambiar.TabIndex = 16;
             this.btn_cambiar.Text = "Cambiar";
             this.btn_cambiar.UseVisualStyleBackColor = true;
+            this.btn_cambiar.Click += new System.EventHandler(this.btn_cambiar_Click);
             // 
             // FormModificarUsuario
             // 
