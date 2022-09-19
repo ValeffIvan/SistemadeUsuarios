@@ -10,25 +10,77 @@ namespace Usuarios.Datos
 {
     internal class DataUsuarios
     {
-        DataConectar cnn = new DataConectar();
-        internal void agregar()
-        {
-            throw new NotImplementedException();
-        }
+        SqlConection cnn = new SqlConection();
+
 
         internal void Agregar(Usuario usuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                cnn.Abrir();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                cnn.Cerrar();
+            }
         }
 
-        internal void Eliminar(Usuario usuario)
+        internal void modificar(Usuario usuario)
         {
+            try
+            {
+                cnn.Abrir();
+            }
+            catch
+            {
 
+            }
+            finally
+            {
+                cnn.Cerrar();
+            }
+        }
+
+        internal string Eliminar(int id)
+        {
+            try
+            {
+                cnn.Abrir();
+                const string query = "DELETE FROM alumnos WHERE id_usuario=@id";
+                SqlCommand cmd = new SqlCommand(query,cnn.Conexion());
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                cnn.Cerrar();
+                return "Usuario eliminado con exito";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+            finally
+            {
+                cnn.Cerrar();
+            }
         }
 
         internal bool Existe(string nom)
         {
+            try
+            {
+                cnn.Abrir();
+            }
+            catch
+            {
 
+            }
+            finally
+            {
+                cnn.Cerrar();
+            }
         }
 
         internal List<Usuario> Listar()
@@ -40,14 +92,14 @@ namespace Usuarios.Datos
             SqlDataReader reader = cmd.ExecuteReader(); 
 
             while (reader.Read()) 
-            {
+            {                
                 Usuario usuario = new Usuario
                 {
-                    nombre = Convert.ToString(reader["Nombre"]),
+                    nombre = Convert.ToString(reader["nombre"]),
                     password = Convert.ToString(reader["password"]),
                     pregunta = Convert.ToInt32(reader["pregunta"]),
                     respuesta = Convert.ToString(reader["respuesta"]),
-                    administrador = Convert.ToBoolean(reader["administrador"]),
+                    administrador = Convert.ToBoolean(reader["administrador"])
                 };
                 usuarios.Add(usuario); 
             }

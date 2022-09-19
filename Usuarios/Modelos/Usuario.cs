@@ -23,5 +23,7 @@ namespace Usuarios.Modelos
             this.respuesta = respuesta;
             this.administrador = administrador;
         }
+        public Usuario()
+        { }
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Usuarios.Datos
 {
-    internal class DataConectar
+    internal class SqlConection
     {
-        SqlConnection cnn = new SqlConnection("");
+        SqlConnection cnn = new SqlConnection("Data Source=192.168.0.29;Initial Catalog=u2;User ID=u2;Password=u2");
 
         internal void Abrir() 
         {

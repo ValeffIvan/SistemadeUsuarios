@@ -44,7 +44,7 @@ namespace Usuarios.Controles
                     int i;
                     Usuario usuario;
                     usuario = new Usuario(nom, cont, Pregunta(preg), resp, adm);
-                    dataUsuarios.agregar();
+                    dataUsuarios.Agregar(usuario);
                     return "Usuario cargado con exito";
                 }
             }
