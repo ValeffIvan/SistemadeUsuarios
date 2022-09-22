@@ -23,17 +23,7 @@ namespace Usuarios.Vistas
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            if (usuariosControl.ModificarUsuario(txt_nombre.Text, txt_contra.Text, txt_respuesta.Text, cb_pregunta.TabIndex))
-            {
-                usuariosControl.ModificarUsuario(txt_nombre.Text, txt_contra.Text, txt_respuesta.Text, cb_pregunta.TabIndex);
-                MessageBox.Show("Usuario modificado con exito");
-                panel_modificar.Visible = false;
-                Recargardgv();
-            }
-            else
-            {
-                MessageBox.Show("Error al cambiar los datos");
-            }
+            MessageBox.Show(usuariosControl.ModificarUsuario(txt_nombre.Text, txt_contra.Text, txt_respuesta.Text, cb_pregunta.TabIndex, cb_admin.Checked));
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)

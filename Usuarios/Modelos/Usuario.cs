@@ -8,6 +8,7 @@ namespace Usuarios.Modelos
 {
     public class Usuario
     {
+        public int id_usuario { get; set; }
         public string nombre { get; set; }
         public string password { get; set; }
         //la pregunta guarda el numero de pregunta, del 1 al 5

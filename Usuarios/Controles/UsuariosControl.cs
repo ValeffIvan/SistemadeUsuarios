@@ -140,12 +140,31 @@ namespace Usuarios.Controles
 
         internal Usuario BuscarUsuarioPorNombre(string nom)
         {
-            throw new NotImplementedException();
+            foreach (Usuario usuario in dataUsuarios.Listar())
+            {
+                if (usuario.nombre==nom)
+                {
+                    return usuario;
+                }
+            }
+            return null;
         }
 
-        internal bool ModificarUsuario(string text1, string text2, string text3, int tabIndex)
+        internal string ModificarUsuario(string nom, string con, string res, int preg,bool admin)
         {
-            throw new NotImplementedException();
+
+            if (dataUsuarios.Existe(nom))
+            {
+                Usuario usuario = new Usuario(nom,con,preg,res,admin);
+                return dataUsuarios.modificar(usuario);
+            }
+            else
+            {
+                return "El usuario no existe";
+            }
+
+
+    
         }
 
         internal void EliminarUsuario(string nom)

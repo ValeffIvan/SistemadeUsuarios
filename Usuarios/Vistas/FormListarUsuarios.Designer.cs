@@ -33,16 +33,16 @@
             this.txt_eliminar = new System.Windows.Forms.Button();
             this.btn_volver = new System.Windows.Forms.Button();
             this.panel_modificar = new System.Windows.Forms.Panel();
+            this.cb_pregunta = new System.Windows.Forms.ComboBox();
+            this.btn_aceptar = new System.Windows.Forms.Button();
+            this.txt_respuesta = new System.Windows.Forms.TextBox();
+            this.txt_contra = new System.Windows.Forms.TextBox();
             this.cb_admin = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_nombre = new System.Windows.Forms.TextBox();
-            this.txt_contra = new System.Windows.Forms.TextBox();
-            this.txt_respuesta = new System.Windows.Forms.TextBox();
-            this.btn_aceptar = new System.Windows.Forms.Button();
-            this.cb_pregunta = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_usuarios)).BeginInit();
             this.panel_modificar.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +55,7 @@
             this.dgv_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_usuarios.Location = new System.Drawing.Point(12, 12);
             this.dgv_usuarios.Name = "dgv_usuarios";
+            this.dgv_usuarios.ReadOnly = true;
             this.dgv_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_usuarios.Size = new System.Drawing.Size(679, 412);
             this.dgv_usuarios.TabIndex = 0;
@@ -110,6 +111,50 @@
             this.panel_modificar.TabIndex = 4;
             this.panel_modificar.Visible = false;
             // 
+            // cb_pregunta
+            // 
+            this.cb_pregunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.cb_pregunta.FormattingEnabled = true;
+            this.cb_pregunta.Items.AddRange(new object[] {
+            "Nombre de su primera mascota",
+            "Cual fue tu primer auto",
+            "Cual es tu pelicula favorita",
+            "Nombre de tu hermano/a",
+            "Banda favorita"});
+            this.cb_pregunta.Location = new System.Drawing.Point(17, 194);
+            this.cb_pregunta.Name = "cb_pregunta";
+            this.cb_pregunta.Size = new System.Drawing.Size(125, 21);
+            this.cb_pregunta.TabIndex = 28;
+            // 
+            // btn_aceptar
+            // 
+            this.btn_aceptar.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_aceptar.Location = new System.Drawing.Point(17, 343);
+            this.btn_aceptar.Name = "btn_aceptar";
+            this.btn_aceptar.Size = new System.Drawing.Size(125, 54);
+            this.btn_aceptar.TabIndex = 5;
+            this.btn_aceptar.Text = "Aceptar";
+            this.btn_aceptar.UseVisualStyleBackColor = true;
+            this.btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
+            // 
+            // txt_respuesta
+            // 
+            this.txt_respuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txt_respuesta.Location = new System.Drawing.Point(17, 257);
+            this.txt_respuesta.Multiline = true;
+            this.txt_respuesta.Name = "txt_respuesta";
+            this.txt_respuesta.Size = new System.Drawing.Size(125, 24);
+            this.txt_respuesta.TabIndex = 27;
+            // 
+            // txt_contra
+            // 
+            this.txt_contra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txt_contra.Location = new System.Drawing.Point(17, 125);
+            this.txt_contra.Multiline = true;
+            this.txt_contra.Name = "txt_contra";
+            this.txt_contra.Size = new System.Drawing.Size(125, 24);
+            this.txt_contra.TabIndex = 25;
+            // 
             // cb_admin
             // 
             this.cb_admin.AutoSize = true;
@@ -163,55 +208,12 @@
             // 
             // txt_nombre
             // 
-            this.txt_nombre.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.txt_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txt_nombre.Location = new System.Drawing.Point(17, 54);
             this.txt_nombre.Multiline = true;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(125, 24);
             this.txt_nombre.TabIndex = 16;
-            // 
-            // txt_contra
-            // 
-            this.txt_contra.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.txt_contra.Location = new System.Drawing.Point(17, 125);
-            this.txt_contra.Multiline = true;
-            this.txt_contra.Name = "txt_contra";
-            this.txt_contra.Size = new System.Drawing.Size(125, 24);
-            this.txt_contra.TabIndex = 25;
-            // 
-            // txt_respuesta
-            // 
-            this.txt_respuesta.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
-            this.txt_respuesta.Location = new System.Drawing.Point(17, 257);
-            this.txt_respuesta.Multiline = true;
-            this.txt_respuesta.Name = "txt_respuesta";
-            this.txt_respuesta.Size = new System.Drawing.Size(125, 24);
-            this.txt_respuesta.TabIndex = 27;
-            // 
-            // btn_aceptar
-            // 
-            this.btn_aceptar.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_aceptar.Location = new System.Drawing.Point(17, 343);
-            this.btn_aceptar.Name = "btn_aceptar";
-            this.btn_aceptar.Size = new System.Drawing.Size(125, 54);
-            this.btn_aceptar.TabIndex = 5;
-            this.btn_aceptar.Text = "Aceptar";
-            this.btn_aceptar.UseVisualStyleBackColor = true;
-            this.btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
-            // 
-            // cb_pregunta
-            // 
-            this.cb_pregunta.FormattingEnabled = true;
-            this.cb_pregunta.Items.AddRange(new object[] {
-            "Nombre de su primera mascota",
-            "Cual fue tu primer auto",
-            "Cual es tu pelicula favorita",
-            "Nombre de tu hermano/a",
-            "Banda favorita"});
-            this.cb_pregunta.Location = new System.Drawing.Point(17, 194);
-            this.cb_pregunta.Name = "cb_pregunta";
-            this.cb_pregunta.Size = new System.Drawing.Size(125, 21);
-            this.cb_pregunta.TabIndex = 28;
             // 
             // FormListarUsuarios
             // 

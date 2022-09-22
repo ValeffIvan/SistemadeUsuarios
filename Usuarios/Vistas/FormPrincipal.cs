@@ -25,6 +25,12 @@ namespace Usuarios.Vistas
                 btn_listar.Enabled = false;
                 btn_eliminar.Enabled = false;
             }
+            else
+            {
+                btn_crear.Enabled = true;
+                btn_listar.Enabled = true;
+                btn_eliminar.Enabled = true;
+            }
         }
 
         private void btn_crear_Click(object sender, EventArgs e)
@@ -57,6 +63,23 @@ namespace Usuarios.Vistas
         {
             this.Owner.Show();
             this.Close();
+        }
+
+        private void btn_listar_Click(object sender, EventArgs e)
+        {
+            FormListarUsuarios formListarUsuarios = new FormListarUsuarios();
+            formListarUsuarios.Owner = this;
+            formListarUsuarios.Show();
+            this.Hide();
+            
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            FormListarUsuarios formListarUsuarios = new FormListarUsuarios();
+            formListarUsuarios.Owner = this;
+            formListarUsuarios.Show();
+            this.Hide();
         }
     }
 }

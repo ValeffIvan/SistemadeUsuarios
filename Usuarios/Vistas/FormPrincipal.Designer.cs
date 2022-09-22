@@ -55,6 +55,7 @@
             this.btn_listar.TabIndex = 2;
             this.btn_listar.Text = "Listar";
             this.btn_listar.UseVisualStyleBackColor = true;
+            this.btn_listar.Click += new System.EventHandler(this.btn_listar_Click);
             // 
             // btn_eliminar
             // 
@@ -65,6 +66,7 @@
             this.btn_eliminar.TabIndex = 3;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_modificar
             // 

@@ -19,7 +19,7 @@ namespace Usuarios.Datos
             {
                 cnn.Abrir(); 
                 const string query = @"INSERT INTO  usuarios 
-                                       (mombre, contrasenia,pregunta,respuesta,administrador)
+                                       (nombre, contrasenia,pregunta,respuesta,administrador)
                                        VALUES 
                                        (@nombre,@contrasenia,@pregunta,@respuesta,@administrador)";
                 SqlCommand cmd = new SqlCommand(query, cnn.Conexion()); 
@@ -39,19 +39,31 @@ namespace Usuarios.Datos
             }
         }
 
-        internal void modificar(Usuario usuario)
+        internal string modificar(Usuario usuario)
         {
-            try
+            try 
             {
-                cnn.Abrir();
+                cnn.Abrir(); 
+                const string query = @"UPDATE alumnos SET 
+                                        nombre=@nombre, @contrasenia=contrasenia, 
+                                        @pregunta=pregunta, @respuesta=respuesta,
+                                        @administrador=administrador)
+                                      WHERE id_usuario=@id"; 
+                SqlCommand cmd = new SqlCommand(query, cnn.Conexion()); 
+                cmd.Parameters.AddWithValue("@id", usuario.id_usuario); 
+                cmd.Parameters.AddWithValue("@nombre", usuario.nombre);
+                cmd.Parameters.AddWithValue("@contrasenia", usuario.password);
+                cmd.Parameters.AddWithValue("@pregunta", usuario.pregunta);
+                cmd.Parameters.AddWithValue("@respuesta", usuario.respuesta);
+                cmd.Parameters.AddWithValue("@administrador", usuario.administrador);
+                cmd.ExecuteNonQuery(); 
+                cnn.Cerrar(); 
+                return "Alumno modificado con exito"; 
             }
-            catch
+            catch (Exception e)
             {
-
-            }
-            finally
-            {
-                cnn.Cerrar();
+                cnn.Cerrar(); 
+                return e.Message; 
             }
         }
 
@@ -113,6 +125,7 @@ namespace Usuarios.Datos
             {                
                 Usuario usuario = new Usuario
                 {
+                    id_usuario = Convert.ToInt32(reader["id_usuario"]),
                     nombre = Convert.ToString(reader["nombre"]),
                     password = Convert.ToString(reader["contrasenia"]),
                     pregunta = Convert.ToInt32(reader["pregunta"]),

@@ -26,5 +26,11 @@ namespace Usuarios.Vistas
             MessageBox.Show(usuariosControl.CambiarPregunta(usuario,cb_pregunta.Text,txt_respuesta.Text));
 
         }
+
+        private void btn_volver_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
+        }
     }
 }
