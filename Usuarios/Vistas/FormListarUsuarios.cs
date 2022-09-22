@@ -23,13 +23,14 @@ namespace Usuarios.Vistas
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
+            //pasar el id para buscar el usuario
             MessageBox.Show(usuariosControl.ModificarUsuario(txt_nombre.Text, txt_contra.Text, txt_respuesta.Text, cb_pregunta.TabIndex, cb_admin.Checked));
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             panel_modificar.Visible = true;
-            string nom = dgv_usuarios.SelectedRows[0].Cells[0].Value.ToString();
+            string nom = dgv_usuarios.SelectedRows[0].Cells[1].Value.ToString();
             Usuario user = usuariosControl.BuscarUsuarioPorNombre(nom);
             txt_nombre.Text = user.nombre;
             txt_contra.Text = user.password;
@@ -39,7 +40,7 @@ namespace Usuarios.Vistas
 
         private void txt_eliminar_Click(object sender, EventArgs e)
         {
-            string nom = dgv_usuarios.SelectedRows[0].Cells[0].Value.ToString();
+            string nom = dgv_usuarios.SelectedRows[0].Cells[1].Value.ToString();
             usuariosControl.EliminarUsuario(nom);
             Recargardgv();
         }
