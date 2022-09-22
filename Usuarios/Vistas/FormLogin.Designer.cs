@@ -38,6 +38,7 @@
             // 
             // txt_nombre
             // 
+            this.txt_nombre.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.txt_nombre.Location = new System.Drawing.Point(44, 43);
             this.txt_nombre.Multiline = true;
             this.txt_nombre.Name = "txt_nombre";
@@ -46,6 +47,7 @@
             // 
             // txt_password
             // 
+            this.txt_password.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
             this.txt_password.Location = new System.Drawing.Point(45, 152);
             this.txt_password.Multiline = true;
             this.txt_password.Name = "txt_password";

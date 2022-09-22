@@ -27,6 +27,11 @@ namespace Usuarios.Controles
             return false;
         }
 
+        internal List<Usuario> Listar()
+        {
+            return dataUsuarios.Listar();
+        }
+
         internal string Agregar(string nom, string cont, string preg, string resp, bool adm)
         {
             if (nom == "" || cont == "" || preg == "" || resp == "")
@@ -41,11 +46,9 @@ namespace Usuarios.Controles
                 }
                 else
                 {
-                    int i;
                     Usuario usuario;
                     usuario = new Usuario(nom, cont, Pregunta(preg), resp, adm);
-                    dataUsuarios.Agregar(usuario);
-                    return "Usuario cargado con exito";
+                    return dataUsuarios.Agregar(usuario);
                 }
             }
         }

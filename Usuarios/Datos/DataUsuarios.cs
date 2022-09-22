@@ -13,19 +13,29 @@ namespace Usuarios.Datos
         SqlConection cnn = new SqlConection();
 
 
-        internal void Agregar(Usuario usuario)
+        internal string Agregar(Usuario usuario)
         {
             try
             {
-                cnn.Abrir();
+                cnn.Abrir(); 
+                const string query = @"INSERT INTO  usuarios 
+                                       (mombre, contrasenia,pregunta,respuesta,administrador)
+                                       VALUES 
+                                       (@nombre,@contrasenia,@pregunta,@respuesta,@administrador)";
+                SqlCommand cmd = new SqlCommand(query, cnn.Conexion()); 
+                cmd.Parameters.AddWithValue("@nombre", usuario.nombre);
+                cmd.Parameters.AddWithValue("@contrasenia", usuario.password);
+                cmd.Parameters.AddWithValue("@pregunta", usuario.pregunta);
+                cmd.Parameters.AddWithValue("@respuesta", usuario.respuesta);
+                cmd.Parameters.AddWithValue("@administrador", usuario.administrador);
+                cmd.ExecuteNonQuery();
+                cnn.Cerrar(); 
+                return "Usuario Cargado con Exito"; 
             }
-            catch
+            catch (Exception e)
             {
-
-            }
-            finally
-            {
-                cnn.Cerrar();
+                cnn.Cerrar(); 
+                return e.Message; 
             }
         }
 
@@ -45,14 +55,14 @@ namespace Usuarios.Datos
             }
         }
 
-        internal string Eliminar(int id)
+        internal string Eliminar(Usuario usuario)
         {
             try
             {
                 cnn.Abrir();
-                const string query = "DELETE FROM alumnos WHERE id_usuario=@id";
+                const string query = "DELETE FROM usuarios WHERE nombre=@nombre";
                 SqlCommand cmd = new SqlCommand(query,cnn.Conexion());
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nombre", usuario.nombre);
                 cmd.ExecuteNonQuery();
                 cnn.Cerrar();
                 return "Usuario eliminado con exito";
@@ -69,25 +79,33 @@ namespace Usuarios.Datos
 
         internal bool Existe(string nom)
         {
-            try
+            int id = 0;            
+            cnn.Abrir();
+            const string query = "SELECT * FROM usuarios where nombre=@nombre";                                                                  
+            SqlCommand cmd = new SqlCommand(query, cnn.Conexion()); 
+            cmd.Parameters.AddWithValue("@nombre", nom); 
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read()) 
             {
-                cnn.Abrir();
+                id = Convert.ToInt32(reader["id_usuario"]); 
             }
-            catch
+            cnn.Cerrar(); 
+            if (id == 0) 
             {
-
+                return false; 
             }
-            finally
+            else
             {
-                cnn.Cerrar();
+                return true; 
             }
+            
         }
 
         internal List<Usuario> Listar()
         {
             List<Usuario> usuarios = new List<Usuario>(); 
             cnn.Abrir(); 
-            const string query = "SELECT * FROM usuarios ORDER BY Id_usuario ASC"; 
+            const string query = "SELECT * FROM usuarios ORDER BY id_usuario ASC"; 
             SqlCommand cmd = new SqlCommand(query, cnn.Conexion());
             SqlDataReader reader = cmd.ExecuteReader(); 
 
@@ -96,7 +114,7 @@ namespace Usuarios.Datos
                 Usuario usuario = new Usuario
                 {
                     nombre = Convert.ToString(reader["nombre"]),
-                    password = Convert.ToString(reader["password"]),
+                    password = Convert.ToString(reader["contrasenia"]),
                     pregunta = Convert.ToInt32(reader["pregunta"]),
                     respuesta = Convert.ToString(reader["respuesta"]),
                     administrador = Convert.ToBoolean(reader["administrador"])
