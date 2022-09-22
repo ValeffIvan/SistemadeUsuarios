@@ -32,6 +32,7 @@
             this.btn_listar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
+            this.btn_cerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_crear
@@ -76,11 +77,24 @@
             this.btn_modificar.UseVisualStyleBackColor = true;
             this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
+            // btn_cerrar
+            // 
+            this.btn_cerrar.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cerrar.Location = new System.Drawing.Point(281, 372);
+            this.btn_cerrar.Name = "btn_cerrar";
+            this.btn_cerrar.Size = new System.Drawing.Size(57, 40);
+            this.btn_cerrar.TabIndex = 4;
+            this.btn_cerrar.Text = "X";
+            this.btn_cerrar.UseVisualStyleBackColor = true;
+            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 416);
+            this.ControlBox = false;
+            this.Controls.Add(this.btn_cerrar);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_listar);
             this.Controls.Add(this.btn_modificar);
@@ -97,5 +111,6 @@
         private System.Windows.Forms.Button btn_listar;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_modificar;
+        private System.Windows.Forms.Button btn_cerrar;
     }
 }

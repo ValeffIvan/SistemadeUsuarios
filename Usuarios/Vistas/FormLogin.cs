@@ -25,6 +25,7 @@ namespace Usuarios
         {
             if (usuariosControl.Ingresar(txt_nombre.Text, txt_password.Text))
             {
+                usuario = txt_nombre.Text;
                 FormPrincipal formPrincipal = new FormPrincipal(usuario);
                 formPrincipal.Owner = this;
                 formPrincipal.Show();
