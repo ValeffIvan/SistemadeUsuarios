@@ -97,6 +97,15 @@ namespace Usuarios.Controles
             }
         }
 
+        internal List<string> NombresDB ()
+        {
+            List<string> list = new List<string>();
+            foreach (Usuario usuario in dataUsuarios.Listar())
+            {
+                list.Add(usuario.nombre);
+            }
+            return list;
+        }
         internal string CambiarPregunta (string nom, string preg, string respuesta)
         {
             foreach (Usuario usuario in dataUsuarios.Listar())
@@ -162,9 +171,49 @@ namespace Usuarios.Controles
             {
                 return "El usuario no existe";
             }
+        }
 
+        internal string PreguntaEnBaseNum(int i)
+        {
+            if (i == 1)
+            {
+                return "Nombre de su primera mascota";
 
-    
+            }
+            else if (i==2)
+            {
+                return "Cual fue tu primer auto";
+
+            }
+            else if (i==3)
+            {
+                return "Cual es tu pelicula favorita";
+
+            }
+            else if (i==4)
+            {
+                return "Nombre de tu hermano/a";
+
+            }
+            else if (i==5)
+            {
+                return "Banda favorita";
+            }
+            else
+                return null;
+
+        }
+
+        internal string BuscarPregunta (string nom)
+        {
+            foreach (Usuario usuario in dataUsuarios.Listar() )
+            {
+                if (usuario.nombre==nom)
+                {
+                    return PreguntaEnBaseNum(usuario.pregunta);
+                }
+            }
+            return null;
         }
 
         internal void EliminarUsuario(string nom)

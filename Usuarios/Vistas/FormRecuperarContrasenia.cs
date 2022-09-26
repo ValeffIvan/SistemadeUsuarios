@@ -17,6 +17,7 @@ namespace Usuarios.Vistas
         public FormRecuperarContrasenia()
         {
             InitializeComponent();
+            cb_nombre.DataSource = usuariosControl.NombresDB();
             panel_contra.Visible = false;
         }
 
@@ -52,6 +53,11 @@ namespace Usuarios.Vistas
             {
                 MessageBox.Show("Corrobore la respuesta");
             }
+        }
+
+        private void cb_nombre_TextChanged(object sender, EventArgs e)
+        {
+            txt_pregunta.Text = usuariosControl.BuscarPregunta(cb_nombre.Text);
         }
     }
 }

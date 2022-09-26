@@ -51,6 +51,7 @@
             this.cb_nombre.Name = "cb_nombre";
             this.cb_nombre.Size = new System.Drawing.Size(208, 21);
             this.cb_nombre.TabIndex = 0;
+            this.cb_nombre.TextChanged += new System.EventHandler(this.cb_nombre_TextChanged);
             // 
             // label2
             // 
