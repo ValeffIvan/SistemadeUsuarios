@@ -24,6 +24,15 @@ namespace Usuarios.Modelos
             this.respuesta = respuesta;
             this.administrador = administrador;
         }
+        public Usuario(int id_usuario,string nombre, string password, int pregunta, string respuesta, bool administrador)
+        {
+            this.id_usuario = id_usuario;
+            this.nombre = nombre;
+            this.password = password;
+            this.pregunta = pregunta;
+            this.respuesta = respuesta;
+            this.administrador = administrador;
+        }
         public Usuario()
         { }
     }

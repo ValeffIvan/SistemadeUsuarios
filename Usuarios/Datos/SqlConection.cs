@@ -15,6 +15,8 @@ namespace Usuarios.Datos
             try
             {
                 cnn = new SqlConnection("Data Source=192.168.0.29;Initial Catalog=u2;User ID=u2;Password=u2");
+                cnn.Open();
+                cnn.Close();
             }
             catch (Exception ex)
             {

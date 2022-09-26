@@ -150,12 +150,12 @@ namespace Usuarios.Controles
             return null;
         }
 
-        internal string ModificarUsuario(string nom, string con, string res, int preg,bool admin)
+        internal string ModificarUsuario(int id,string nom, string con, string res, int preg,bool admin)
         {
 
             if (dataUsuarios.Existe(nom))
             {
-                Usuario usuario = new Usuario(nom,con,preg,res,admin);
+                Usuario usuario = new Usuario(id,nom,con,preg,res,admin);
                 return dataUsuarios.modificar(usuario);
             }
             else

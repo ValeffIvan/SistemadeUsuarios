@@ -24,7 +24,9 @@ namespace Usuarios.Vistas
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
             //pasar el id para buscar el usuario
-            MessageBox.Show(usuariosControl.ModificarUsuario(txt_nombre.Text, txt_contra.Text, txt_respuesta.Text, cb_pregunta.TabIndex, cb_admin.Checked));
+            MessageBox.Show(usuariosControl.ModificarUsuario((int)dgv_usuarios.SelectedRows[0].Cells[0].Value,txt_nombre.Text, txt_contra.Text, txt_respuesta.Text, cb_pregunta.TabIndex, cb_admin.Checked));
+            dgv_usuarios.DataSource = null;
+            dgv_usuarios.DataSource = usuariosControl.Listar();
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)

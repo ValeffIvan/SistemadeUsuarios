@@ -24,7 +24,7 @@ namespace Usuarios.Vistas
         private void btn_cambiar_Click(object sender, EventArgs e)
         {
             MessageBox.Show(usuariosControl.CambiarPregunta(usuario,cb_pregunta.Text,txt_respuesta.Text));
-
+            
         }
 
         private void btn_volver_Click(object sender, EventArgs e)

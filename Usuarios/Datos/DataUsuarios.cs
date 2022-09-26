@@ -44,10 +44,10 @@ namespace Usuarios.Datos
             try 
             {
                 cnn.Abrir(); 
-                const string query = @"UPDATE alumnos SET 
-                                        nombre=@nombre, @contrasenia=contrasenia, 
-                                        @pregunta=pregunta, @respuesta=respuesta,
-                                        @administrador=administrador)
+                const string query = @"UPDATE usuarios SET 
+                                        nombre=@nombre, contrasenia=@contrasenia, 
+                                        pregunta=@pregunta, respuesta=@respuesta,
+                                        administrador=@administrador
                                       WHERE id_usuario=@id"; 
                 SqlCommand cmd = new SqlCommand(query, cnn.Conexion()); 
                 cmd.Parameters.AddWithValue("@id", usuario.id_usuario); 
@@ -58,12 +58,12 @@ namespace Usuarios.Datos
                 cmd.Parameters.AddWithValue("@administrador", usuario.administrador);
                 cmd.ExecuteNonQuery(); 
                 cnn.Cerrar(); 
-                return "Alumno modificado con exito"; 
+                return "Usuario modificado con exito"; 
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 cnn.Cerrar(); 
-                return e.Message; 
+                return ex.Message; 
             }
         }
 
