@@ -144,7 +144,7 @@
             // 
             // txt_contra
             // 
-            this.txt_contra.Font = new System.Drawing.Font("Arial Narrow", 20.25F);
+            this.txt_contra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txt_contra.Location = new System.Drawing.Point(12, 47);
             this.txt_contra.Multiline = true;
             this.txt_contra.Name = "txt_contra";
